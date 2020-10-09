@@ -3,8 +3,8 @@ import useLocalStorage from './useLocalStorage';
 const useDarkMode = (key, initialValues) => {
     const [values, setValues] = useLocalStorage(key, initialValues);
 
-    const handleChanges = (e) => {
-        alert("DarkMode On");
+    const handleChanges = (n) => {
+        setValues(n);
     };
 
     return [handleChanges, values, setValues];
