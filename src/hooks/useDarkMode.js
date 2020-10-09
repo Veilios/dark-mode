@@ -7,13 +7,7 @@ const useDarkMode = (key, initialValues) => {
         alert("DarkMode On");
     };
 
-    const toggleMode = e => {
-        e.preventDefault();
-        setValues(!values.darkMode);
-      };
-
-
-    return [handleChanges, values, toggleMode, setValues];
+    return [handleChanges, values, setValues];
 
 };
 

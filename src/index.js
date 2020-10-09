@@ -4,20 +4,13 @@ import axios from "axios";
 
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
-import useDarkMode from './hooks/useDarkMode';
 
 import "./styles.scss";
 
-const initialValues = {
-  darkMode: false
-};
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [handleChanges, values, toggleMode] = useDarkMode(
-    "alanDarkMode2020",
-    initialValues
-    );
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     axios
@@ -28,8 +21,8 @@ const App = () => {
       .catch(err => console.log(err));
   }, []);
   return (
-    <div className={values.darkMode ? "dark-mode App" : "App"}>
-      <Navbar darkMode={values.darkMode} handleChanges={handleChanges} toggleMode={toggleMode} />
+    <div className={darkMode ? "dark-mode App" : "App"}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Charts coinData={coinData} />
     </div>
   );
